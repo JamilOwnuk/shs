@@ -49,7 +49,7 @@ pshsII = function(q, mu = 0, sigma = 1, alpha = 0,lower.tail=TRUE)
   if(abs(mu) ==Inf) stop("mu must be a finite real number.")
   if(lower.tail != TRUE && lower.tail != FALSE) stop("lower.tail must be TRUE or FALSE.")
 
-  cdf = pbeta(exp(2*q)/(1+exp(2*q)), (1+alpha)/2, (1-alpha)/2)
+  cdf = pbeta(exp(2 * (q-mu)/sigma)/(1 + exp(2 * (q-mu)/sigma)), (1 + alpha)/2, (1 - alpha)/2)
   ifelse(test=lower.tail == TRUE,yes=return(cdf),no=return(1-cdf))
 }
 
